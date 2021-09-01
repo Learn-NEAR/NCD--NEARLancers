@@ -1,0 +1,18 @@
+{
+  "name": "NEARLancers",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "build": "asb",
+    "test": "asp --nologo --verbose",
+    "clean": "rm -rf ./build",
+    "deploy": "near dev-deploy ./build/release/NEARLancers.wasm"
+
+  },
+  "keywords": [],
+  "author": "Luis Daniel, Missael López, Yair Nava",
+  "license": "ISC",
+  "devDependencies": {
+    "near-sdk-as": "^3.1.0"
+  }
+}
