@@ -46,3 +46,21 @@ Cree el código del contrato inteligente de NEARLancers e implemente el servidor
 ==================
 
 Los siguientes comandos le permiten interactuar con los métodos del contrato inteligente utilizando NEAR CLI (para esto, debe tener implementado un contrato inteligente provisional).
+
+Comando para crear pefil: 
+--------------------------------------------
+```bash
+near call $CONTRACT nuevoPerfil '{ "nombre":"string", "telefono":"string","correo":"string","cuenta":"string"}' --account-id <your test account>
+```
+
+Comando para consultar todos los perfiles:
+--------------------------------------------
+```bash
+near view $CONTRACT consultarPerfiles  
+```
+
+Comando para consultar perfil de una cuenta:
+--------------------------------------------
+```bash
+near call $CONTRACT consultarPerfil '{"nombreCuenta":"cuenta.testnet"}' --account-id <your test account>
+```
