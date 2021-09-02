@@ -1,25 +1,40 @@
-import { context, u128, PersistentVector } from "near-sdk-as";
+import { context, PersistentVector, math } from "near-sdk-as";
 
-// Exportando la clase Perfil
+// Exportando la clase Usuario
 @nearBindgen
-export class Perfil {
+export class Usuario {
+    idUsuario: string;
     nombre: string;
     telefono: string;
     correo: string;
-    cuenta: string;
+    password: string;
     
-    constructor(nombre: string,telefono: string, correo: string, cuenta: string){
+    constructor(idCuenta: string, nombre: string, telefono: string, correo: string, password: string){
+        this.idUsuario = idCuenta;
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
-        this.cuenta = cuenta;
+        this.password = password;
     }   
 }
 
-/**
- * PersistentVector es una colección persistente de almacenamiento.
- * Todos los cambios que se realicen sobre esta colección serán guardados automáticamente.
- * El parámetro del constructor necesita un valor unico, este será utilizado
- * como prefijo de todas las keys solicitadas en el almacenamiento de los datos en el storage
- */
- export const perfiles = new PersistentVector<Perfil>("p");
+// Exportando la clase Servicio
+@nearBindgen
+export class Servicio {
+    idServicio: u64;
+    nombre: string;
+    descripción: string;
+    costo: u64;
+    idUsuario: string;
+
+    constructor(idServicio: u64, nombre: string,descripción: string, costo: u64, idUsuario: string){
+        this.idServicio = idServicio;
+        this.nombre = nombre;
+        this.descripción = descripción;
+        this.costo = costo;
+        this.idUsuario = idUsuario;
+    }   
+}
+
+ export const usuarios = new PersistentVector<Usuario>("u");
+ export const servicios = new PersistentVector<Servicio>("s");

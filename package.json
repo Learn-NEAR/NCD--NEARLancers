@@ -7,12 +7,16 @@
     "test": "asp --nologo --verbose",
     "clean": "rm -rf ./build",
     "deploy": "near dev-deploy ./build/release/NEARLancers.wasm"
-
   },
   "keywords": [],
   "author": "Luis Daniel, Missael López, Yair Nava",
   "license": "ISC",
   "devDependencies": {
+    "@types/uuid": "^8.3.1",
     "near-sdk-as": "^3.1.0"
+  },
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "uuidv4": "^6.2.12"
   }
 }
