@@ -3,7 +3,7 @@
 📄 Description
 ==================
 
-NEARLancers es un contrato inteligente en el que puede crear un perfil y si lo desea puede ofrecer servicios para los demás usuarios, se podrán almacenar diversos servición y consultar todos los servicios en general o de un usuario en específico utilizando el protocolo NEAR. Las siguientes son las principales funcionalidades de este contrato inteligente:
+NEARLancers es un contrato inteligente en el que puede crear un perfil y si lo desea puede ofrecer servicios para los demás usuarios, se podrán almacenar diversos serviciós y consultar todos en general o de un usuario en específico utilizando el protocolo NEAR. Las siguientes son las principales funcionalidades de este contrato inteligente:
 
 1. Crear perfil de usuario.
 2. Consultar un perfil de usuario.
@@ -12,7 +12,7 @@ NEARLancers es un contrato inteligente en el que puede crear un perfil y si lo d
 4. Obtener todos los servicios de un usuario. 
 5. Agregar calificación.
 6. Agregar comentarios a algún servicio.
-7. Transferir nears al servicio que estás contratando.
+7. Transferir NEAR al servicio que estás contratando.
 
 📦 Instalación
 ================
@@ -40,7 +40,7 @@ Configure su near-cli para autorizar su cuenta de prueba creada recientemente:
 Paso 3: Cree y realice una implementación de desarrollo de contrato inteligente
 --------------------------------
 
-Cree el código del contrato inteligente de NEARLancers e implemente el servidor de desarrollo local: `yarn buil` (consulte` package.json` para obtener una lista completa de `scripts` que puede ejecutar con` yarn`). Este script le devuelve un contrato inteligente provisional implementado (guárdelo para usarlo más tarde)
+Cree el código del contrato inteligente de NEARLancers e implemente el servidor de desarrollo local: `yarn buil` (consulte` package.json` para obtener una lista completa de `scripts` que puede ejecutar con` yarn`). Este script le devuelve un contrato inteligente provisional implementado (guárdelo para usarlo más tarde). Para desplegar el contrato generado con `yarn buil` en testnet (https://explorer.testnet.near.org/), ejecutar el comando `yarn deploy` el cual nos regresará el id del contrato desplegado.
 
 📑 Explorando los métodos de contrato inteligente NEARLancers
 ==================
