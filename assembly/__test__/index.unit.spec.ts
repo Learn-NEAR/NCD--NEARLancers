@@ -128,3 +128,83 @@ describe("Consultar un servicio por su id",()=>{
     }).toThrow();
   });
 });
+
+// ------------------------- COMENTARIOS ------------------------- //
+
+// Prueba para la función agregarComentario
+describe("Agregar un comentario",()=>{
+  it("Debería agregar un comentario a un servicio", () => {
+    expect(() => {
+      contract.agregarComentario(11231,"testing777.testnet","Comentario bla bla bla");
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos el idServicio", () => {
+    expect(() => {
+      contract.agregarComentario(<u64>NaN,"testing777.testnet","Comentario bla bla bla");
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos el idUsuario", () => {
+    expect(() => {
+      contract.agregarComentario(11231,"","Comentario bla bla bla");
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos el comentario", () => {
+    expect(() => {
+      contract.agregarComentario(11231,"testing777.testnet","");
+    }).toThrow();
+  });
+});
+
+// Prueba para la función consultarComentarios
+describe("Consultar comentarios de un servicio",()=>{
+  it("Debería consultar los comentarios de un servicio", () => {
+    expect(() => {
+      contract.consultarComentarios(11231);
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos el idServicio", () => {
+    expect(() => {
+      contract.consultarComentarios(<u64>NaN);
+    }).toThrow();
+  });
+});
+
+// ------------------------- VALORACIONES ------------------------- //
+
+// Prueba para la función agregarValoracion
+describe("Agregar una valoración",()=>{
+  it("Debería agregar una valoración a un servicio", () => {
+    expect(() => {
+      contract.agregarValoracion(11231,"testing777.testnet",4);
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos el idServicio", () => {
+    expect(() => {
+      contract.agregarValoracion(<u64>NaN,"testing777.testnet",4);
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos el idUsuario", () => {
+    expect(() => {
+      contract.agregarValoracion(11231,"",4);
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos la valoración", () => {
+    expect(() => {
+      contract.agregarValoracion(11231,"testing777.testnet",<u64>NaN);
+    }).toThrow();
+  });
+});
+
+// Prueba para la función consultarValoracion
+describe("Consultar la valoración de un servicio",()=>{
+  it("Debería consultar la valoración de un servicio", () => {
+    expect(() => {
+      contract.consultarValoracion(11231);
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos el idServicio", () => {
+    expect(() => {
+      contract.consultarValoracion(<u64>NaN);
+    }).toThrow();
+  });
+});
