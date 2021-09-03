@@ -36,5 +36,20 @@ export class Servicio {
     }   
 }
 
+//Exportando la clase comentario
+@nearBindgen
+export class Comentario {
+    idServicio: u64;
+    idUsuario: string;
+    comentario: string;
+    
+    constructor(idServicio:u64, idUsuario: string, comentario: string){
+        this.idServicio = idServicio;
+        this.idUsuario = idUsuario;
+        this.comentario = comentario;
+    }
+}
+
  export const usuarios = new PersistentVector<Usuario>("u");
  export const servicios = new PersistentVector<Servicio>("s"); 
+ export const comentarios = new PersistentVector<Comentario>("c");

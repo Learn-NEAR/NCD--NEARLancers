@@ -1,5 +1,5 @@
 import { logging } from 'near-sdk-as'
-import { usuarios, Usuario, servicios, Servicio} from "./models";
+import { usuarios, Usuario, servicios, Servicio, comentarios, Comentario} from "./models";
 
 // Método de prueba hola mundo
 export function holaMundo(): string {
@@ -70,6 +70,38 @@ export function consultarServiciosUsuario(idUsuario: string): Array<Servicio>{
   for (let i = 0; i < servicios.length; i++){
     if(servicios[i].idUsuario == idUsuario){
       result.push(servicios[i])
+    }  
+  }
+  return result;
+}
+
+// Método para consultar un servicio por su id
+export function consultarServicio(idServicio: u64): Servicio | null{
+  for (let i = 0; i < servicios.length; i++){
+    if(servicios[i].idServicio == idServicio){
+      return servicios[i];
+    }  
+  }
+  return null;
+}
+
+// ------------------------- Métodos del smart contract de COMENTARIOS ------------------------- //
+
+// Método para agregar comentario a un servicio
+export function agregarComentario(idServicio: u64, idUsuario: string, comentario: string): void {
+  assert(idServicio>=0,"El id de servicio es requerido");
+  assert(idUsuario.length>0,"El id de usuario es requerido");
+  assert(comentario.length>0,"El comentario es requerido");
+  let nuevoComentario = new Comentario(idServicio, idUsuario, comentario);
+  comentarios.push(nuevoComentario);
+}
+
+// Método para consultar comentarios de un servicio
+export function consultarComentarios(idServicio: u64): Array<Comentario>{
+  let result = new Array<Comentario>();
+  for (let i = 0; i < comentarios.length; i++){
+    if(comentarios[i].idServicio == idServicio){
+      result.push(comentarios[i]);
     }  
   }
   return result;
