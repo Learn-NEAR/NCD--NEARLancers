@@ -3,7 +3,7 @@
 📄 Description
 ==================
 
-NEARLancers es un contrato inteligente en el que puede crear un usaurio y si lo desea puede ofrecer servicios para los demás usuarios, se podrán almacenar diversos serviciós y consultar todos en general o de un usuario en específico utilizando el protocolo NEAR. Las siguientes son las principales funcionalidades de este contrato inteligente:
+NEARLancers es un contrato inteligente en el que puede crear un usuario y si lo desea puede ofrecer servicios para los demás usuarios, se podrán almacenar diversos servicios y consultar todos en general o de un usuario en específico utilizando el protocolo NEAR. Las siguientes son las principales funcionalidades de este contrato inteligente:
 
 1. Crear usuario.
 2. Consultar todos los usuarios.
@@ -11,9 +11,8 @@ NEARLancers es un contrato inteligente en el que puede crear un usaurio y si lo 
 4. Agregar servicio.
 5. Obtener todos los servicios.
 6. Obtener todos los servicios de un usuario. 
-7. Agregar calificación.
+7. Agregar valoración.
 8. Agregar comentarios a algún servicio.
-9. Transferir NEAR al servicio que estás contratando.
 
 📦 Instalación
 ================
@@ -83,5 +82,11 @@ near view $CONTRACT consultarServicios
 Comando para consultar todos los servicios de un usuario:
 --------------------------------------------
 ```bash
-near call $CONTRACT consultarServiciosUsuario '{"idUsuario":"cuenta.testnet"}' --account-id <your test account>
+near call $CONTRACT consultarServiciosUsuario '{"idUsuario":"string"}' --account-id <your test account>
+```
+
+Comando para consultar un servicio por su id:
+--------------------------------------------
+```bash
+near call $CONTRACT consultarServicio '{"idServicio":"string"}' --account-id <your test account>
 ```

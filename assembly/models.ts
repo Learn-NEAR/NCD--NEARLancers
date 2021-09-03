@@ -1,4 +1,4 @@
-import { context, PersistentVector, math } from "near-sdk-as";
+import { PersistentVector } from "near-sdk-as";
 
 // Exportando la clase Usuario
 @nearBindgen
@@ -23,18 +23,18 @@ export class Usuario {
 export class Servicio {
     idServicio: u64;
     nombre: string;
-    descripción: string;
+    descripcion: string;
     costo: u64;
     idUsuario: string;
 
-    constructor(idServicio: u64, nombre: string,descripción: string, costo: u64, idUsuario: string){
+    constructor(idServicio: u64, nombre: string,descripcion: string, costo: u64, idUsuario: string){
         this.idServicio = idServicio;
         this.nombre = nombre;
-        this.descripción = descripción;
+        this.descripcion = descripcion;
         this.costo = costo;
         this.idUsuario = idUsuario;
     }   
 }
 
  export const usuarios = new PersistentVector<Usuario>("u");
- export const servicios = new PersistentVector<Servicio>("s");
+ export const servicios = new PersistentVector<Servicio>("s"); 
