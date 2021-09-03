@@ -33,6 +33,7 @@ export function consultarUsuarios(): Array<Usuario>{
 
 // Método para consultar un usuario por el id de cuenta
 export function consultarUsuario(idCuenta: string): Usuario | null {
+  assert(idCuenta.length>0,"La cuenta es requerida");
   for (let i = 0; i < usuarios.length; i++) {
     if (usuarios[i].idUsuario == idCuenta) {
       let usuarioEncontrado = usuarios[i];
