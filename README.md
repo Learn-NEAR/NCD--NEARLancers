@@ -90,3 +90,27 @@ Comando para consultar un servicio por su id:
 ```bash
 near call $CONTRACT consultarServicio '{"idServicio":"string"}' --account-id <your test account>
 ```
+
+Comando para agregar un comentario a un servicio:
+--------------------------------------------
+```bash
+near call $CONTRACT agregarComentario '{"idServicio":"u64", "idUsuario":"string", "comentario":"string"}' --account-id <your test account>
+```
+
+Comando para consultar todos los comentarios de un servicio:
+--------------------------------------------
+```bash
+near call $CONTRACT consultarComentarios '{"idServicio":"u64"}' --account-id <your test account>
+```
+
+Comando para agregar una valoracion a un servicio:
+--------------------------------------------
+```bash
+near call $CONTRACT agregarValoracion '{"idServicio":"u64", "idUsuario":"string", "valoracion":"u64"}' --account-id <your test account>
+```
+
+Comando para consultar todas las valoraciones de un servicio:
+--------------------------------------------
+```bash
+near call $CONTRACT consultarValoracion '{"idServicio":"u64"}' --account-id <your test account>
+```

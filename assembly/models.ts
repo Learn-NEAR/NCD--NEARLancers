@@ -36,7 +36,7 @@ export class Servicio {
     }   
 }
 
-//Exportando la clase comentario
+// Exportando la clase comentario
 @nearBindgen
 export class Comentario {
     idServicio: u64;
@@ -51,7 +51,6 @@ export class Comentario {
 }
 
 // Exportando la clase valoracion
-
 @nearBindgen
 export class Valoracion {
     idServicio: u64;
