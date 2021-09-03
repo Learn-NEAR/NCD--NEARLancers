@@ -1,6 +1,7 @@
 import * as contract from "..";
 import { Context } from "near-sdk-as";
 
+// ------------------------- USUARIOS ------------------------- //
 
 // Prueba para la función registrarUsuario
 describe("Registrar usuario",()=>{

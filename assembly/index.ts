@@ -67,6 +67,7 @@ export function consultarServicios(): Array<Servicio>{
 
 // Método para consultar todos los servicios de un usuario
 export function consultarServiciosUsuario(idUsuario: string): Array<Servicio>{
+  assert(idUsuario.length>0,"El idUsuario es requerido");
   let result = new Array<Servicio>();
   for (let i = 0; i < servicios.length; i++){
     if(servicios[i].idUsuario == idUsuario){
@@ -78,6 +79,7 @@ export function consultarServiciosUsuario(idUsuario: string): Array<Servicio>{
 
 // Método para consultar un servicio por su id
 export function consultarServicio(idServicio: u64): Servicio | null{
+  assert(idServicio>=0,"El idServicio es requerido");
   for (let i = 0; i < servicios.length; i++){
     if(servicios[i].idServicio == idServicio){
       return servicios[i];
@@ -99,6 +101,7 @@ export function agregarComentario(idServicio: u64, idUsuario: string, comentario
 
 // Método para consultar comentarios de un servicio
 export function consultarComentarios(idServicio: u64): Array<Comentario>{
+  assert(idServicio>=0,"El id de servicio es requerido");
   let result = new Array<Comentario>();
   for (let i = 0; i < comentarios.length; i++){
     if(comentarios[i].idServicio == idServicio){
@@ -122,6 +125,7 @@ export function agregarValoracion(idServicio: u64, idUsuario: string, valoracion
 
 // Método para consultar la valoracion de un servicio
 export function consultarValoracion(idServicio: u64): number{
+  assert(idServicio>=0,"El id de servicio es requerido");
   let result = 0;
   let contador = 0;
   for (let i = 0; i < valoraciones.length; i++){
