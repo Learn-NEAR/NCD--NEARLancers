@@ -124,15 +124,13 @@ export function agregarValoracion(idServicio: u64, idUsuario: string, valoracion
 }
 
 // Método para consultar la valoracion de un servicio
-export function consultarValoracion(idServicio: u64): number{
+export function consultarValoracion(idServicio: u64): Array<Valoracion>{
   assert(idServicio>=0,"El id de servicio es requerido");
-  let result = 0;
-  let contador = 0;
+  let result = new Array<Valoracion>();
   for (let i = 0; i < valoraciones.length; i++){
     if(valoraciones[i].idServicio == idServicio){
-      result += <i32>valoraciones[i].valoracion;
-      contador ++;
+      result.push(valoraciones[i]);
     }  
   }
-  return (result/contador);
+  return result;
 }

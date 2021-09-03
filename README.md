@@ -14,7 +14,7 @@ NEARLancers es un contrato inteligente en el que puede crear un usuario y si lo 
 7. Agregar comentarios a un servicio.
 8. Consultar los comentarios que tiene un servicio.
 9. Agregar valoración a un servicio.
-10. Consultar el promedio de valoración que tiene un servicio.
+10. Consultar las valoraciones que tiene un servicio.
 
 📦 Instalación
 ================
@@ -59,7 +59,7 @@ Comando para consultar todos los usuarios:
 
 Comando para consultar un usuario por id:
 --------------------------------------------
-    near call $CONTRACT consultarUsuario '{"idCuenta":"cuenta.testnet"}' --account-id <your test account>
+    near view $CONTRACT consultarUsuario '{"idCuenta":"cuenta.testnet"}'
 
 
 Comando para guardar un servicio:
@@ -72,11 +72,11 @@ Comando para consultar todos los servicios:
 
 Comando para consultar todos los servicios de un usuario:
 --------------------------------------------
-    near call $CONTRACT consultarServiciosUsuario '{"idUsuario":"string"}' --account-id <your test account>
+    near view $CONTRACT consultarServiciosUsuario '{"idUsuario":"string"}'
 
 Comando para consultar un servicio por su id:
 --------------------------------------------
-    near call $CONTRACT consultarServicio '{"idServicio":"string"}' --account-id <your test account>
+    near view $CONTRACT consultarServicio '{"idServicio":"string"}'
 
 Comando para agregar un comentario a un servicio:
 --------------------------------------------
@@ -84,7 +84,7 @@ Comando para agregar un comentario a un servicio:
 
 Comando para consultar todos los comentarios de un servicio:
 --------------------------------------------
-    near call $CONTRACT consultarComentarios '{"idServicio":"u64"}' --account-id <your test account>
+    near view $CONTRACT consultarComentarios '{"idServicio":"u64"}'
 
 Comando para agregar una valoracion a un servicio:
 --------------------------------------------
@@ -92,7 +92,7 @@ Comando para agregar una valoracion a un servicio:
 
 Comando para consultar todas las valoraciones de un servicio:
 --------------------------------------------
-    near call $CONTRACT consultarValoracion '{"idServicio":"u64"}' --account-id <your test account>
+    near view $CONTRACT consultarValoracion '{"idServicio":"u64"}'
 
 🤖 Pruebas
 --------------------------------
