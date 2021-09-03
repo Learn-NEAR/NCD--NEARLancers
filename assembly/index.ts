@@ -1,5 +1,5 @@
 import { logging } from 'near-sdk-as'
-import { usuarios, Usuario, servicios, Servicio, comentarios, Comentario} from "./models";
+import { usuarios, Usuario, servicios, Servicio, comentarios, Comentario, valoraciones, Valoracion} from "./models";
 
 // Método de prueba hola mundo
 export function holaMundo(): string {
@@ -105,4 +105,29 @@ export function consultarComentarios(idServicio: u64): Array<Comentario>{
     }  
   }
   return result;
+}
+
+// ------------------------- Métodos del smart contract de VALORACIONES ------------------------- //
+
+
+// Método para agregar valoracion a un servicio
+export function agregarValoracion(idServicio: u64, idUsuario: string, valoracion: u64): void {
+  assert(idServicio>=0,"El id de servicio es requerido");
+  assert(idUsuario.length>0,"El id de usuario es requerido");
+  assert(valoracion>=0,"La valoración es requerida");
+  let nuevaValoracion = new Valoracion(idServicio, idUsuario, valoracion);
+  valoraciones.push(nuevaValoracion);
+}
+
+// Método para consultar la valoracion de un servicio
+export function consultarValoracion(idServicio: u64): number{
+  let result = 0;
+  let contador = 0;
+  for (let i = 0; i < valoraciones.length; i++){
+    if(valoraciones[i].idServicio == idServicio){
+      result += <i32>valoraciones[i].valoracion;
+      contador ++;
+    }  
+  }
+  return (result/contador);
 }
