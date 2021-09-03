@@ -59,3 +59,72 @@ describe("consultar usuario por idCuenta",()=>{
     }).toThrow();
   });
 });
+
+
+// ------------------------- SERVICIOS ------------------------- //
+
+// Prueba para la función registrarServicio
+describe("Registrar servicio",()=>{
+  it("Debería registrar un servicio", () => {
+    expect(() => {
+      contract.registrarServicio("Nombre servicio","Descripción de servicio",500,"testing777.testnet");
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos nombre", () => {
+    expect(() => {
+      contract.registrarServicio("","Descripción de servicio",500,"testing777.testnet");
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos el descripción", () => {
+    expect(() => {
+      contract.registrarServicio("Nombre servicio","",500,"testing777.testnet");
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos el costo", () => {
+    expect(() => {
+      contract.registrarServicio("Nombre servicio","Descripción de servicio",0,"testing777.testnet");
+    }).toThrow();
+  });
+  it("Debería fallar si no enviamos el idUsuario", () => {
+    expect(() => {
+      contract.registrarServicio("Nombre servicio","Descripción de servicio",500,"");
+    }).toThrow();
+  });
+});
+
+// Prueba para la función consultarServicios
+describe("Consultar todos los servicios",()=>{
+  it("Debería consultar todos los servicios", () => {
+    expect(() => {
+      contract.consultarServicios();
+    }).not.toThrow();
+  });
+});
+
+// Prueba para la función consultarServiciosUsuario
+describe("Consultar todos los servicios que ofrece un usuario",()=>{
+  it("Debería consultar todos los servicios que ofrece un usuario", () => {
+    expect(() => {
+      contract.consultarServiciosUsuario("testing777.testnet");
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos el idUsuario", () => {
+    expect(() => {
+      contract.consultarServiciosUsuario("");
+    }).toThrow();
+  });
+});
+
+// Prueba para la función consultarServicio
+describe("Consultar un servicio por su id",()=>{
+  it("Debería consultar un servicio por su id", () => {
+    expect(() => {
+      contract.consultarServicio(1423);
+    }).not.toThrow();
+  });
+  it("Debería fallar si no enviamos el idServicio", () => {
+    expect(() => {
+      contract.consultarServicio(<u64>NaN);
+    }).toThrow();
+  });
+});
